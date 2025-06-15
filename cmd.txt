@@ -1,0 +1,11 @@
+# Lancer la DB seulement
+docker-compose up -d postgres redis
+
+# Stopper tous les services
+docker-compose down
+
+# Lancer le backend local
+cd backend && npm run dev
+
+# Lancer le Storefront
+cd my-medusa-store-storefront && npm run dev
