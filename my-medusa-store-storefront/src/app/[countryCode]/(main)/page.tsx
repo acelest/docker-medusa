@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
+import CategoryCarousel from "@modules/home/components/category-carousel"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
 import HeroGrid from "@modules/home/components/hero-grid"
@@ -36,9 +37,10 @@ export default async function Home(props: {
       image: "/hero/mca3.jpg",
       imageAlt: "iPhone 15 Pro",
       darkMode: true,
-      learnMoreHref: "/products/iphone-15-pro",
+      learnMoreHref: "/categories/iphone",
+      learnMoreText: "Voir tous les iPhone",
       buyHref: "/products/iphone-15-pro",
-      buyText: "Acheter l’iPhone",
+      buyText: "Acheter",
       size: "large" as const,
     },
     {
@@ -47,9 +49,10 @@ export default async function Home(props: {
       image: "/hero/ipadair.jpg",
       imageAlt: "iPad Air",
       darkMode: false,
-      learnMoreHref: "/products/ipad-air",
+      learnMoreHref: "/categories/ipad",
+      learnMoreText: "Voir tous les iPad",
       buyHref: "/products/ipad-air",
-      buyText: "Acheter l’iPad",
+      buyText: "Acheter",
     },
     {
       title: "MacBook Pro",
@@ -57,9 +60,10 @@ export default async function Home(props: {
       image: "/hero/mac2.jpg",
       imageAlt: "MacBook Pro",
       darkMode: true,
-      learnMoreHref: "/products/macbook-pro",
+      learnMoreHref: "/categories/macbook",
+      learnMoreText: "Voir tous les MacBook",
       buyHref: "/products/macbook-pro",
-      buyText: "Acheter le MacBook",
+      buyText: "Acheter",
     },
     {
       title: "Apple Watch",
@@ -67,9 +71,10 @@ export default async function Home(props: {
       image: "/hero/apple-watch.jpg",
       imageAlt: "Apple Watch",
       darkMode: false,
-      learnMoreHref: "/products/apple-watch",
+      learnMoreHref: "/categories/apple-watch",
+      learnMoreText: "Voir toutes les Watch",
       buyHref: "/products/apple-watch",
-      buyText: "Acheter la Watch",
+      buyText: "Acheter",
     },
     {
       title: "AirPods Pro",
@@ -77,9 +82,10 @@ export default async function Home(props: {
       image: "/hero/airpod.jpg",
       imageAlt: "AirPods Pro",
       darkMode: true,
-      learnMoreHref: "/products/airpods-pro",
+      learnMoreHref: "/categories/airpods",
+      learnMoreText: "Voir tous les AirPods",
       buyHref: "/products/airpods-pro",
-      buyText: "Acheter les AirPods",
+      buyText: "Acheter",
     },
   ]
 
@@ -87,6 +93,7 @@ export default async function Home(props: {
     <>
       <Hero />
       <HeroGrid items={heroGridItems} />
+      <CategoryCarousel />
       <div className="py-12">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
