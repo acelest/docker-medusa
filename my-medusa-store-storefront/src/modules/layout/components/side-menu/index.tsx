@@ -56,7 +56,7 @@ const SideMenu = ({
         <button
           data-testid="close-menu-button"
           onClick={onClose}
-          className="p-2 transition-colors rounded-full hover:bg-white/10"
+          className="flex items-center justify-center p-3 text-gray-900 transition-all duration-200 transform rounded-full shadow-xl bg-white/90 hover:bg-white hover:text-black hover:scale-110 active:scale-95 animate-fadeIn"
         >
           <XMark className="w-6 h-6" />
         </button>

@@ -1,6 +1,6 @@
 import { listCategories } from "@lib/data/categories"
 import { listCollections } from "@lib/data/collections"
-import { Text, clx } from "@medusajs/ui"
+import { Text } from "@medusajs/ui"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
@@ -24,80 +24,57 @@ export default async function Footer() {
           </div>
           <div className="grid grid-cols-2 gap-10 text-small-regular md:gap-x-16 sm:grid-cols-3">
             {productCategories && productCategories?.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
-                  Categories
+              <div className="flex flex-col gap-y-4">
+                <span className="text-base font-medium txt-ui-fg-base">
+                  Catégories
                 </span>
-                <ul
-                  className="grid grid-cols-1 gap-2"
-                  data-testid="footer-categories"
-                >
-                  {productCategories?.slice(0, 6).map((c) => {
+                <div className="grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2">
+                  {productCategories?.map((c) => {
                     if (c.parent_category) {
-                      return
+                      return null
                     }
 
-                    const children =
-                      c.category_children?.map((child) => ({
-                        name: child.name,
-                        handle: child.handle,
-                        id: child.id,
-                      })) || null
-
                     return (
-                      <li
-                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
-                        key={c.id}
-                      >
+                      <div key={c.id} className="flex flex-col gap-y-2">
                         <LocalizedClientLink
-                          className={clx(
-                            "hover:text-ui-fg-base",
-                            children && "txt-small-plus"
-                          )}
+                          className="text-sm font-medium transition-colors duration-200 text-ui-fg-base hover:text-ui-fg-subtle"
                           href={`/categories/${c.handle}`}
                           data-testid="category-link"
                         >
                           {c.name}
                         </LocalizedClientLink>
-                        {children && (
-                          <ul className="grid grid-cols-1 gap-2 ml-3">
-                            {children &&
-                              children.map((child) => (
+                        {c.category_children &&
+                          c.category_children.length > 0 && (
+                            <ul className="ml-2 space-y-2">
+                              {c.category_children.map((child) => (
                                 <li key={child.id}>
                                   <LocalizedClientLink
-                                    className="hover:text-ui-fg-base"
+                                    className="inline-block text-xs transition-colors duration-200 text-ui-fg-subtle hover:text-ui-fg-base hover:translate-x-1"
                                     href={`/categories/${child.handle}`}
-                                    data-testid="category-link"
+                                    data-testid="category-child-link"
                                   >
                                     {child.name}
                                   </LocalizedClientLink>
                                 </li>
                               ))}
-                          </ul>
-                        )}
-                      </li>
+                            </ul>
+                          )}
+                      </div>
                     )
                   })}
-                </ul>
+                </div>
               </div>
             )}
             {collections && collections.length > 0 && (
-              <div className="flex flex-col gap-y-2">
-                <span className="txt-small-plus txt-ui-fg-base">
+              <div className="flex flex-col gap-y-4">
+                <span className="text-base font-medium txt-ui-fg-base">
                   Collections
                 </span>
-                <ul
-                  className={clx(
-                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
-                    {
-                      "grid-cols-2": (collections?.length || 0) > 3,
-                    }
-                  )}
-                >
+                <ul className="grid grid-cols-1 gap-y-2">
                   {collections?.slice(0, 6).map((c) => (
                     <li key={c.id}>
                       <LocalizedClientLink
-                        className="hover:text-ui-fg-base"
+                        className="text-sm transition-colors duration-200 text-ui-fg-base hover:text-ui-fg-subtle"
                         href={`/collections/${c.handle}`}
                       >
                         {c.title}
@@ -107,8 +84,10 @@ export default async function Footer() {
                 </ul>
               </div>
             )}
-            <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Suivez-nous</span>
+            <div className="flex flex-col gap-y-4">
+              <span className="text-base font-medium txt-ui-fg-base">
+                Suivez-nous
+              </span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a

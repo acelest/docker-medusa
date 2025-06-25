@@ -234,7 +234,7 @@ export default function Nav() {
             <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 backdrop-blur-sm">
               <div className="relative w-full max-w-lg mt-24">
                 <button
-                  className="absolute z-10 p-1 text-gray-500 right-2 top-2 hover:text-gray-800"
+                  className="absolute z-10 p-3 right-3 top-3 bg-white rounded-full shadow-xl text-gray-900 hover:bg-gray-50 hover:text-black transition-all duration-200 transform hover:scale-110 active:scale-95 flex items-center justify-center ring-offset-2 ring-offset-white focus:outline-none focus:ring-2 focus:ring-blue-500 animate-fadeIn"
                   aria-label="Fermer la recherche"
                   onClick={() => setShowSearch(false)}
                 >
@@ -242,12 +242,12 @@ export default function Nav() {
                     className="w-6 h-6"
                     fill="none"
                     stroke="currentColor"
+                    strokeWidth={2.5}
                     viewBox="0 0 24 24"
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
                       d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
