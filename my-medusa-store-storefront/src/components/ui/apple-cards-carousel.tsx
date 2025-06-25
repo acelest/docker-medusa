@@ -25,6 +25,7 @@ type Card = {
   title: string
   category: string
   content: React.ReactNode
+  isVideo?: boolean
 }
 
 export const CarouselContext = createContext<{
@@ -229,7 +230,26 @@ export const Card = ({
               >
                 {card.title}
               </motion.p>
-              <div className="py-10">{card.content}</div>
+              <div className="py-10">
+                {card.src && !card.isVideo && (
+                  <img
+                    src={card.src}
+                    alt={card.title}
+                    className="mx-auto max-h-[500px] object-contain"
+                  />
+                )}
+                {card.src && card.isVideo && (
+                  <video
+                    src={card.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    controls
+                    className="mx-auto max-h-[500px] max-w-full"
+                  />
+                )}
+              </div>
             </motion.div>
           </div>
         )}
@@ -258,6 +278,7 @@ export const Card = ({
           src={card.src}
           alt={card.title}
           fill
+          isVideo={card.isVideo}
           className="absolute inset-0 z-10 object-cover"
         />
       </motion.button>
@@ -272,6 +293,7 @@ export const BlurImage = ({
   className,
   alt,
   fill,
+  isVideo,
   ...rest
 }: {
   height?: number
@@ -280,14 +302,30 @@ export const BlurImage = ({
   className?: string
   alt: string
   fill?: boolean
+  isVideo?: boolean
   [key: string]: any
 }) => {
   const [isLoading, setLoading] = useState(true)
-  return (
+
+  // Utilisez des classes Tailwind plutôt que des styles inline pour éviter les problèmes de TypeScript
+  const positionClass = fill ? "absolute inset-0 object-cover" : ""
+
+  return isVideo ? (
+    <video
+      className={cn("h-full w-full object-cover", positionClass, className)}
+      autoPlay
+      loop
+      muted
+      playsInline
+      src={src}
+      {...rest}
+    />
+  ) : (
     <img
       className={cn(
         "h-full w-full transition duration-300",
         isLoading ? "blur-sm" : "blur-0",
+        positionClass,
         className
       )}
       onLoad={() => setLoading(false)}
@@ -297,20 +335,6 @@ export const BlurImage = ({
       loading="lazy"
       decoding="async"
       alt={alt ? alt : "Background of a beautiful view"}
-      style={
-        fill
-          ? {
-              position: "absolute",
-              height: "100%",
-              width: "100%",
-              left: 0,
-              top: 0,
-              right: 0,
-              bottom: 0,
-              objectFit: "cover",
-            }
-          : {}
-      }
       {...rest}
     />
   )

@@ -10,7 +10,7 @@ export function AppleCardsCarouselDemo() {
   return (
     <div className="w-full h-full py-20">
       <h2 className="pl-4 mx-auto font-sans text-xl font-bold max-w-7xl md:text-5xl text-neutral-800 dark:text-neutral-200">
-        Découvrez votre prochain appareil Apple.
+        Les avantages d'acheter vos produits Apple chez nous ?
       </h2>
       <Carousel items={cards} />
     </div>
@@ -51,39 +51,50 @@ const DummyContent = () => {
 
 const data = [
   {
-    category: "Intelligence Artificielle",
-    title: "Faites-en plus avec l'IA.",
-    src: "/hero/mac1.jpg",
-    content: <DummyContent />,
+    category: "Service client apres-vente",
+    title: "Passez dans nos stores",
+    isVideo: true,
+    src: "/img/video3.mp4",
+    content: null, // Désactivation du contenu
   },
   {
-    category: "Productivité",
-    title: "Améliorez votre productivité.",
-    src: "/hero/mca3.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Produit",
-    title: "Découvrez l'Apple Vision Pro.",
-    src: "/hero/airpod.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Produit",
-    title: "iPhone 15 Pro Max.",
-    src: "/hero/ipadair.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "iOS",
+    category: "Produits certifiés ",
     title: "La photographie repensée.",
-    src: "/hero/mac2.jpg",
-    content: <DummyContent />,
+    src: "/img/video1.mp4",
+    isVideo: true,
+    content: null, // Désactivation du contenu
   },
   {
-    category: "Nouveautés",
-    title: "Découvrez nos dernières innovations",
-    src: "/hero/apple-watch.jpg",
-    content: <DummyContent />,
+    category: "Facilités de paiement",
+    title: "Payez en 3 ou 4 fois sans frais.",
+    src: "/img/tranchepaiement.png",
+    content: null, // Désactivation du contenu
+  },
+  {
+    category: "Client satisfait",
+    title: "Laissez nous vous rendre heureux.",
+    isVideo: true,
+    src: "/img/video4.mp4",
+    content: null, // Désactivation du contenu
+  },
+  {
+    category: "Pochettes et accessoires",
+    title: "Découvrez nos pochettes.",
+    isVideo: true,
+    src: "/img/video2.mp4",
+    content: null, // Désactivation du contenu
+  },
+  {
+    category: "Store ouvert 7/7",
+    title: "Ouvert meme le dimanche.",
+    isVideo: true,
+    src: "/img/video5.mp4",
+    content: null, // Désactivation du contenu
+  },
+  {
+    category: "Trocs disponibles",
+    title: "Echanger vos anciens iphones.",
+    src: "/img/troc.png",
+    content: null, // Désactivation du contenu
   },
 ]
