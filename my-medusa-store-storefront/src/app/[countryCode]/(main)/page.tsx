@@ -7,6 +7,8 @@ import CategoryCarousel from "@modules/home/components/category-carousel"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
 import HeroGrid from "@modules/home/components/hero-grid"
+import Article from "components/article"
+import BackToHome from "components/whatsapp-button"
 import Carousal from "../../../components/carousel"
 
 export const metadata: Metadata = {
@@ -94,6 +96,7 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
+      <BackToHome />
       <HeroGrid items={heroGridItems} />
       <CategoryCarousel />
       <div className="py-12">
@@ -103,6 +106,7 @@ export default async function Home(props: {
       </div>
       <AppleCardsCarouselDemo />
       <Carousal />
+      <Article />
     </>
   )
 }
