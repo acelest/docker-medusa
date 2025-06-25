@@ -6,6 +6,7 @@ import CategoryCarousel from "@modules/home/components/category-carousel"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
 import HeroGrid from "@modules/home/components/hero-grid"
+import { AppleCardsCarouselDemo } from "@modules/home/components/apple-carousel"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -99,6 +100,7 @@ export default async function Home(props: {
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
+      <AppleCardsCarouselDemo />
     </>
   )
 }
