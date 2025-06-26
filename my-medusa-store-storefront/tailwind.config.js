@@ -225,6 +225,7 @@ module.exports = {
         enter: "enter 200ms ease-out",
         "slide-in": "slide-in 1.2s cubic-bezier(.41,.73,.51,1.02)",
         fadeIn: "fadeIn 0.3s ease-in-out",
+        "spin-slow": "spin 15s linear infinite",
         leave: "leave 150ms ease-in forwards",
       },
     },

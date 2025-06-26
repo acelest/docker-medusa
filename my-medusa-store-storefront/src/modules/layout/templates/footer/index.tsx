@@ -14,13 +14,31 @@ export default async function Footer() {
     <footer className="w-full border-t border-ui-border-base">
       <div className="flex flex-col w-full content-container">
         <div className="flex flex-col items-start justify-between py-40 gap-y-6 xsmall:flex-row">
-          <div>
+          <div className="flex flex-col items-center gap-6">
             <LocalizedClientLink
               href="/"
               className="uppercase txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base"
             >
               Apple Store 237{" "}
             </LocalizedClientLink>
+
+            <div className="relative group cursor-pointer">
+              <div className="w-36 h-36 overflow-hidden rounded-full shadow-lg transition-all duration-700 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
+                <img
+                  src="/img/apple-store-237.jpg"
+                  alt="Apple Store 237 Logo"
+                  className="object-cover w-full h-full transition-transform duration-1000 ease-in-out group-hover:brightness-110"
+                />
+
+                {/* Glow effect overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-500/0 via-yellow-500/0 to-blue-500/0 opacity-0 group-hover:from-pink-500/20 group-hover:via-yellow-500/20 group-hover:to-blue-500/20 transition-all duration-700 group-hover:opacity-100"></div>
+              </div>
+
+              {/* Subtle text below logo */}
+              <p className="mt-2 text-center text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Apple Store 237
+              </p>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-10 text-small-regular md:gap-x-16 sm:grid-cols-3">
             {productCategories && productCategories?.length > 0 && (
