@@ -10,8 +10,9 @@ cd backend && npm run dev
 # Lancer le Storefront
 cd my-medusa-store-storefront && npm run dev
 
-# Créer un utilisateur administrateur
-cd my-medusa-store && npx medusa user -e admin@medusa.com -p 7410
-
 # Initialiser/mettre à jour la base de données (à exécuter après le premier démarrage de la DB)
+# ⚠️ Avant toute chose, il faut exécuter la migration de la base de données pour Medusa :
 cd my-medusa-store && npx medusa db:migrate
+
+# Ensuite, créer un utilisateur administrateur :
+cd my-medusa-store && npx medusa user -e admin@medusa.com -p 7410
